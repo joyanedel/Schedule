@@ -13,7 +13,7 @@ class App extends React.Component{
     return(
       <div>
         <h2> Horario académico </h2>
-        <div className="split left"> <Display sigla={this.props.data.sigla} bloque={this.props.data.bloque}/> </div>
+        <div className="split left"> <Display sigla={this.props.data.sigla} bloque={this.props.data.bloque} init={this.props.data.init}/> </div>
         <div className="split right"> <Calendar data={this.props.data} putData={this.props.putData}/> </div>
       </div>
     );

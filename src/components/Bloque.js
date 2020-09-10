@@ -4,11 +4,10 @@ import Colores from '../data/Ramos';
 import '../css/Bloque.css';
 import Cookie from 'universal-cookie';
 
-const cookies = new Cookie();
-
 class Bloque extends React.Component {
   constructor(props) {
     super(props);
+    this.cookies = new Cookie();
     try{
       this.sigla = Schedule.Horario[this.props.day][this.props.block][0];
       this.color = Colores[this.sigla];
@@ -33,9 +32,8 @@ class Bloque extends React.Component {
   }
 
   discriminate() {
-    cookies.set('data', {sigla: this.sigla, bloque: this.props.day + this.props.block});
-    this.props.putData({sigla: this.sigla, bloque: this.props.day+this.props.block})
-    console.log(cookies.get('data'));
+    this.cookies.set('data', {sigla: this.sigla, bloque: this.props.day + this.props.block});
+    this.props.putData({sigla: this.sigla, bloque: this.props.day+this.props.block, init: true});
   }
 
   render() {
