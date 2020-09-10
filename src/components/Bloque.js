@@ -2,6 +2,9 @@ import React from 'react';
 import Schedule from '../data/Schedule';
 import Colores from '../data/Ramos';
 import '../css/Bloque.css';
+import Cookie from 'universal-cookie';
+
+const cookies = new Cookie();
 
 class Bloque extends React.Component {
   constructor(props) {
@@ -30,7 +33,9 @@ class Bloque extends React.Component {
   }
 
   discriminate() {
+    cookies.set('data', {sigla: this.sigla, bloque: this.props.day + this.props.block});
     this.props.putData({sigla: this.sigla, bloque: this.props.day+this.props.block})
+    console.log(cookies.get('data'));
   }
 
   render() {

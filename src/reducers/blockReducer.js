@@ -1,7 +1,6 @@
-const initialState = {sigla: "", bloque: ""};
+const initialState = {sigla: "", bloque: "", init: false};
 
 function reducer(state = initialState, { type, payload}){
-  console.log(state);
   switch(type){
     case "PUT_DATA": {
       return payload;
